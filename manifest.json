@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub OpenAPI Preview",
+  "version": "0.1.0",
+  "description": "Adds an “OpenAPI Preview” tab on GitHub for .yaml/.json API specs",
+  "permissions": [
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://github.com/*",
+    "https://raw.githubusercontent.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*/*/blob/*"
+      ],
+      "js": [
+        "swagger-ui-bundle.js",
+        "swagger-ui-standalone-preset.js",
+        "content-script.js"
+      ],
+      "css": [
+        "swagger-ui.css"
+      ]
+    }
+  ]
+}
